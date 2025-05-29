@@ -1,0 +1,21 @@
+- name: Deploy demo-maven
+  hosts: targets
+  gather_facts: false
+
+  tasks:
+    - name: Create target directory on remote host
+      ansible.builtin.file:
+        path: /home/ubuntu/builds/target1
+        state: directory
+        mode: '0755'
+
+    - name: Copy build files from local to remote
+      ansible.builtin.copy:
+        src: /var/lib/jenkins/workspace/demo-maven/target/
+        dest: /home/ubuntu/builds/target1/
+        mode: '0755'
+        directory_mode: '0755'
+    - name: Run demo-maven
+      ansible.builtin.shell: java -cp target2/jb-hello-world-maven-0.2.0.jar hello.HelloWorld
+      args:
+        chdir: /home/ubuntu/builds

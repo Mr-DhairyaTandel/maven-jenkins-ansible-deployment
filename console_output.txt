@@ -1,0 +1,198 @@
+Started by user Dhairya Tandel
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/demo-maven
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Code)
+[Pipeline] git
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/demo-maven/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/jabedhasan21/java-hello-world-with-maven.git # timeout=10
+Fetching upstream changes from https://github.com/jabedhasan21/java-hello-world-with-maven.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+ > git fetch --tags --force --progress -- https://github.com/jabedhasan21/java-hello-world-with-maven.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision 90e9979a36789d45e1bcc3cdab0ce8412f89bad3 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 90e9979a36789d45e1bcc3cdab0ce8412f89bad3 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D master # timeout=10
+ > git checkout -b master 90e9979a36789d45e1bcc3cdab0ce8412f89bad3 # timeout=10
+Commit message: "update gitignore"
+ > git rev-list --no-walk 90e9979a36789d45e1bcc3cdab0ce8412f89bad3 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Code Build)
+[Pipeline] sh
++ mvn compile
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--------------< [0;36morg.springframework:jb-hello-world-maven[0;1m >--------------[m
+[[1;34mINFO[m] [1mBuilding jb-hello-world-maven 0.2.0[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mjb-hello-world-maven[0;1m ---[m
+[[1;33mWARNING[m] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[[1;34mINFO[m] skip non existing resourceDirectory /var/lib/jenkins/workspace/demo-maven/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:compile[m [1m(default-compile)[m @ [36mjb-hello-world-maven[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  1.273 s
+[[1;34mINFO[m] Finished at: 2025-05-28T15:36:11Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[Pipeline] sh
++ mvn package
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--------------< [0;36morg.springframework:jb-hello-world-maven[0;1m >--------------[m
+[[1;34mINFO[m] [1mBuilding jb-hello-world-maven 0.2.0[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mjb-hello-world-maven[0;1m ---[m
+[[1;33mWARNING[m] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[[1;34mINFO[m] skip non existing resourceDirectory /var/lib/jenkins/workspace/demo-maven/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:compile[m [1m(default-compile)[m @ [36mjb-hello-world-maven[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mjb-hello-world-maven[0;1m ---[m
+[[1;33mWARNING[m] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[[1;34mINFO[m] skip non existing resourceDirectory /var/lib/jenkins/workspace/demo-maven/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:testCompile[m [1m(default-testCompile)[m @ [36mjb-hello-world-maven[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.12.4:test[m [1m(default-test)[m @ [36mjb-hello-world-maven[0;1m ---[m
+[[1;34mINFO[m] No tests to run.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:2.4:jar[m [1m(default-jar)[m @ [36mjb-hello-world-maven[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-shade-plugin:2.1:shade[m [1m(default)[m @ [36mjb-hello-world-maven[0;1m ---[m
+[[1;34mINFO[m] Including joda-time:joda-time:jar:2.2 in the shaded jar.
+[[1;33mWARNING[m] jb-hello-world-maven-0.2.0.jar, joda-time-2.2.jar define 229 overlappping classes: 
+[[1;33mWARNING[m]   - org.joda.time.field.RemainderDateTimeField
+[[1;33mWARNING[m]   - org.joda.time.convert.ReadableDurationConverter
+[[1;33mWARNING[m]   - org.joda.time.convert.ReadableIntervalConverter
+[[1;33mWARNING[m]   - org.joda.time.field.SkipUndoDateTimeField
+[[1;33mWARNING[m]   - org.joda.time.format.DateTimeFormatterBuilder$TimeZoneName
+[[1;33mWARNING[m]   - org.joda.time.tz.DateTimeZoneBuilder$RuleSet
+[[1;33mWARNING[m]   - org.joda.time.chrono.BasicDayOfMonthDateTimeField
+[[1;33mWARNING[m]   - org.joda.time.Duration
+[[1;33mWARNING[m]   - org.joda.time.field.OffsetDateTimeField
+[[1;33mWARNING[m]   - org.joda.time.format.ISODateTimeFormat
+[[1;33mWARNING[m]   - 219 more...
+[[1;33mWARNING[m] maven-shade-plugin has detected that some .class files
+[[1;33mWARNING[m] are present in two or more JARs. When this happens, only
+[[1;33mWARNING[m] one single version of the class is copied in the uberjar.
+[[1;33mWARNING[m] Usually this is not harmful and you can skeep these
+[[1;33mWARNING[m] warnings, otherwise try to manually exclude artifacts
+[[1;33mWARNING[m] based on mvn dependency:tree -Ddetail=true and the above
+[[1;33mWARNING[m] output
+[[1;33mWARNING[m] See http://docs.codehaus.org/display/MAVENUSER/Shade+Plugin
+[[1;34mINFO[m] Replacing original artifact with shaded artifact.
+[[1;34mINFO[m] Replacing /var/lib/jenkins/workspace/demo-maven/target/jb-hello-world-maven-0.2.0.jar with /var/lib/jenkins/workspace/demo-maven/target/jb-hello-world-maven-0.2.0-shaded.jar
+[[1;34mINFO[m] Dependency-reduced POM written at: /var/lib/jenkins/workspace/demo-maven/dependency-reduced-pom.xml
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  2.454 s
+[[1;34mINFO[m] Finished at: 2025-05-28T15:36:16Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[Pipeline] sh
++ mvn install
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--------------< [0;36morg.springframework:jb-hello-world-maven[0;1m >--------------[m
+[[1;34mINFO[m] [1mBuilding jb-hello-world-maven 0.2.0[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mjb-hello-world-maven[0;1m ---[m
+[[1;33mWARNING[m] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[[1;34mINFO[m] skip non existing resourceDirectory /var/lib/jenkins/workspace/demo-maven/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:compile[m [1m(default-compile)[m @ [36mjb-hello-world-maven[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mjb-hello-world-maven[0;1m ---[m
+[[1;33mWARNING[m] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[[1;34mINFO[m] skip non existing resourceDirectory /var/lib/jenkins/workspace/demo-maven/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:testCompile[m [1m(default-testCompile)[m @ [36mjb-hello-world-maven[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.12.4:test[m [1m(default-test)[m @ [36mjb-hello-world-maven[0;1m ---[m
+[[1;34mINFO[m] No tests to run.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:2.4:jar[m [1m(default-jar)[m @ [36mjb-hello-world-maven[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-shade-plugin:2.1:shade[m [1m(default)[m @ [36mjb-hello-world-maven[0;1m ---[m
+[[1;34mINFO[m] Including joda-time:joda-time:jar:2.2 in the shaded jar.
+[[1;33mWARNING[m] jb-hello-world-maven-0.2.0.jar, joda-time-2.2.jar define 229 overlappping classes: 
+[[1;33mWARNING[m]   - org.joda.time.field.RemainderDateTimeField
+[[1;33mWARNING[m]   - org.joda.time.convert.ReadableDurationConverter
+[[1;33mWARNING[m]   - org.joda.time.convert.ReadableIntervalConverter
+[[1;33mWARNING[m]   - org.joda.time.field.SkipUndoDateTimeField
+[[1;33mWARNING[m]   - org.joda.time.format.DateTimeFormatterBuilder$TimeZoneName
+[[1;33mWARNING[m]   - org.joda.time.tz.DateTimeZoneBuilder$RuleSet
+[[1;33mWARNING[m]   - org.joda.time.chrono.BasicDayOfMonthDateTimeField
+[[1;33mWARNING[m]   - org.joda.time.Duration
+[[1;33mWARNING[m]   - org.joda.time.field.OffsetDateTimeField
+[[1;33mWARNING[m]   - org.joda.time.format.ISODateTimeFormat
+[[1;33mWARNING[m]   - 219 more...
+[[1;33mWARNING[m] maven-shade-plugin has detected that some .class files
+[[1;33mWARNING[m] are present in two or more JARs. When this happens, only
+[[1;33mWARNING[m] one single version of the class is copied in the uberjar.
+[[1;33mWARNING[m] Usually this is not harmful and you can skeep these
+[[1;33mWARNING[m] warnings, otherwise try to manually exclude artifacts
+[[1;33mWARNING[m] based on mvn dependency:tree -Ddetail=true and the above
+[[1;33mWARNING[m] output
+[[1;33mWARNING[m] See http://docs.codehaus.org/display/MAVENUSER/Shade+Plugin
+[[1;34mINFO[m] Replacing original artifact with shaded artifact.
+[[1;34mINFO[m] Replacing /var/lib/jenkins/workspace/demo-maven/target/jb-hello-world-maven-0.2.0.jar with /var/lib/jenkins/workspace/demo-maven/target/jb-hello-world-maven-0.2.0-shaded.jar
+[[1;34mINFO[m] Dependency-reduced POM written at: /var/lib/jenkins/workspace/demo-maven/dependency-reduced-pom.xml
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-install-plugin:2.4:install[m [1m(default-install)[m @ [36mjb-hello-world-maven[0;1m ---[m
+[[1;34mINFO[m] Installing /var/lib/jenkins/workspace/demo-maven/target/jb-hello-world-maven-0.2.0.jar to /var/lib/jenkins/.m2/repository/org/springframework/jb-hello-world-maven/0.2.0/jb-hello-world-maven-0.2.0.jar
+[[1;34mINFO[m] Installing /var/lib/jenkins/workspace/demo-maven/dependency-reduced-pom.xml to /var/lib/jenkins/.m2/repository/org/springframework/jb-hello-world-maven/0.2.0/jb-hello-world-maven-0.2.0.pom
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  2.659 s
+[[1;34mINFO[m] Finished at: 2025-05-28T15:36:20Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Code Deploy)
+[Pipeline] sh
++ ansible-playbook /var/lib/jenkins/deploy.yml
+
+PLAY [Deploy demo-maven] *******************************************************
+
+TASK [Create target directory on remote host] **********************************
+ok: [target1]
+
+TASK [Copy build files from local to remote] ***********************************
+changed: [target1]
+
+TASK [Run demo-maven] **********************************************************
+changed: [target1]
+
+PLAY RECAP *********************************************************************
+target1                    : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
+
