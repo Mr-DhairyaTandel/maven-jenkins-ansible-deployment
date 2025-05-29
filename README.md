@@ -38,7 +38,9 @@ This project demonstrates a complete CI/CD pipeline for a Java-based Maven appli
 ## 🚀 Deployment Steps
 
 * Trigger the Jenkins pipeline manually or on code push.
-* Monitor stages: Code, Build, Deploy.
+* Monitor stages:   Code
+                    Build
+                    Deploy.
 
 ## 🔐 Security
 
